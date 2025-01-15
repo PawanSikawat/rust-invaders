@@ -6,7 +6,7 @@ pub mod shot;
 pub mod utils;
 
 pub const NUM_ROWS: usize = 20;
-pub const  NUM_COLS: usize = 40;
+pub const NUM_COLS: usize = 40;
 
 pub const SHOT_MOVE_SPEED: usize = 50;
 pub const SHOT_EXPLOSION_TIME: usize = 250;

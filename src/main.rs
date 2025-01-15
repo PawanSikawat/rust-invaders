@@ -1,7 +1,24 @@
-use std::{error::Error, io, time::{Duration, Instant}, sync::mpsc, thread};
-use crossterm::{terminal::{self, LeaveAlternateScreen, EnterAlternateScreen}, ExecutableCommand, cursor::{Hide, Show}, event::{self, Event, KeyCode}};
-use invaders::{utils::add_audios, frame::{new_frame, Drawable}, render::render, player::Player, invaders::Invaders};
+use crossterm::{
+    cursor::{Hide, Show},
+    event::{self, Event, KeyCode},
+    terminal::{self, EnterAlternateScreen, LeaveAlternateScreen},
+    ExecutableCommand,
+};
+use invaders::{
+    frame::{new_frame, Drawable},
+    invaders::Invaders,
+    player::Player,
+    render::render,
+    utils::add_audios,
+};
 use rusty_audio::Audio;
+use std::{
+    error::Error,
+    io,
+    sync::mpsc,
+    thread,
+    time::{Duration, Instant},
+};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let mut audio = Audio::new();
@@ -93,7 +110,6 @@ fn main() -> Result<(), Box<dyn Error>> {
             break 'gameloop;
         }
     }
-
 
     // Cleanup post game
     drop(render_tx);
